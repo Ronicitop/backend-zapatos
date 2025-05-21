@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-
+const paymentRoutes = require('./lib/modules/payment/payment.routes');
 require('dotenv').config();
 
 // 💡 Primero creamos la app
@@ -9,6 +9,7 @@ const app = express();
 // 💡 Luego los middlewares
 app.use(cors());
 app.use(express.json());
+app.use('/api/pagos', paymentRoutes);
 
 // 💡 Luego importamos las rutas
 const distributorRoutes = require('./lib/modules/distributor/distributor.routes');
